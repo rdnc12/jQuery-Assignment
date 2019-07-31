@@ -13,7 +13,7 @@ The tasks are all about Javascript and jQuery exercise. It is going to be very b
 
 3. The project contains `index.html`,  `style.css` and `app.js`. The css and js files are already connected to the html file. So you may start writing js code right away. If you preview the html, you will see no functioning web-page. Your task is to make them functioning.
 
-#### Here are the tasks to do
+#### Here are the tasks to do, you must use jQuery to solve them
 
 - `Delete` buttons should remove the topics (`li` elements). 
 - `Add` button should add a topic (an `li` element inside 2 `span` elements).
