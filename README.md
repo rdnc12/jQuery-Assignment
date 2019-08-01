@@ -11,7 +11,7 @@ The tasks are all about Javascript and jQuery exercise. It is going to be very b
 
 2. Now you have the repo in your GitHub. Clone the repo. Now you can work locally.
 
-3. The project contains `index.html`,  `style.css` and `app.js`. The css and js files are already connected to the html file. So you may start writing js code right away. If you preview the html, you will see no functioning web-page. Your task is to make them functioning.
+3. The project contains `index.html`,  `style.css` and `app.js`. The css and js files are already connected to the html file. So you may start writing js code right away.  But don't forget to include jQuery in the `index.html`. If you preview the html, you will see no functioning web-page. Your task is to make them functioning.
 
 #### Here are the tasks to do, you must use jQuery to solve them
 
