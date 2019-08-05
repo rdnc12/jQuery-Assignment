@@ -10,6 +10,7 @@ $(document).on('click', '.delete', function () {
     $(this).fadeOut(500, function () {
         $(this).closest('li').remove()
     });
+    
 });
 
 
@@ -23,16 +24,19 @@ $('button').on('click', function (e) {
         var addSound = new Audio("sound/adds.mp3");
         addSound.play();
 
-        $('button').css('background-color', '#9361bf');
         $('ul').append("<li><span class='name'>"
             + newValue
             + "</span><span class='delete'>delete</span>");
         $('#addListItem').val('');
+        
     }
     else {
         $('button').css('background-color', 'red');
     }
-
+    $("#addListItem").keypress(function () {
+        $('button').css('background-color', '#9361bf');
+    });
+    
 });
 
 
@@ -56,3 +60,4 @@ $('#search-topics input').keyup(function () {
         $(this).toggle(showCurrentLi);
     });
 })
+
