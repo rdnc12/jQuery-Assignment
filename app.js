@@ -24,7 +24,8 @@ $('button').on('click', function (e) {
         var addSound = new Audio("sound/adds.mp3");
         addSound.play();
 
-        $('ul').append("<li><span class='name'>"
+        
+        $('ul').append("<li class='list-group-item'><span class='name'>"
             + newValue
             + "</span><span class='delete'>delete</span>");
         $('#addListItem').val('');

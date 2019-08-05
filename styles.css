@@ -54,9 +54,7 @@ h1, h2{
 }
 
 #topic-list li{
-    padding: 20px;
     border-left: 5px solid #ddd;
-    margin: 20px 10px;
 }
 
 #topic-list li:hover{
