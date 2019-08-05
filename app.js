@@ -2,10 +2,13 @@
 //alert('deneme12');
 
 // Delete li
-$('.delete').click(function () {
+$(document).on('click','.delete', function () {
     event.preventDefault();
+   // $(this).closest('li').hide();
     $(this).closest('li').remove();
     //$('ul li').remove();
+    console.log(event);
+    
 });
 
 
@@ -20,7 +23,6 @@ $('button').on('click', function (e) {
     let newSpan2 = $("<span class='delete'></span>").text('delete').appendTo(newLi);
     $('#addListItem').val('');
 
-
     // $('ul').append("<li><span class='name'>"
     //     + newValue
     //     + "</span><span class='delete'>delete</span>");
@@ -28,3 +30,17 @@ $('button').on('click', function (e) {
 
 });
 
+
+// hide 
+
+$('#hide').click(function () {
+    $('ul').toggle(this.unchecked);
+});
+
+//search
+
+$('input[type="text"]').keyup(function () {
+    
+
+
+})
