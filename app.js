@@ -1,46 +1,58 @@
 // Make the project great again with jQuery ..
 //alert('deneme12');
 
-// Delete li
-$(document).on('click','.delete', function () {
+// `Delete` buttons should remove the topics (`li` elements). 
+$(document).on('click', '.delete', function () {
     event.preventDefault();
-   // $(this).closest('li').hide();
-    $(this).closest('li').remove();
-    //$('ul li').remove();
-    console.log(event);
-    
+    var noSound = new Audio("sound/no.mp3");
+    noSound.play();
+
+    $(this).fadeOut(500, function () {
+        $(this).closest('li').remove()
+    });
 });
 
 
-// Add li 
+// `Add` button should add a topic (an `li` element inside 2 `span` elements).
 
 $('button').on('click', function (e) {
     e.preventDefault();
-    let newValue = $('#addListItem').val();
+    var newValue = $('#addListItem').val();
 
-    let newLi = $('<li></li>').appendTo('ul');
-    let newSpan = $("<span class='name'></span>").text(newValue).appendTo(newLi);
-    let newSpan2 = $("<span class='delete'></span>").text('delete').appendTo(newLi);
-    $('#addListItem').val('');
+    if (newValue !== '') {
+        var addSound = new Audio("sound/adds.mp3");
+        addSound.play();
 
-    // $('ul').append("<li><span class='name'>"
-    //     + newValue
-    //     + "</span><span class='delete'>delete</span>");
-    // $('#addListItem').val('');
+        $('button').css('background-color', '#9361bf');
+        $('ul').append("<li><span class='name'>"
+            + newValue
+            + "</span><span class='delete'>delete</span>");
+        $('#addListItem').val('');
+    }
+    else {
+        $('button').css('background-color', 'red');
+    }
 
 });
 
 
-// hide 
+
+// There is a `checkbox` under the topics. It should hide all topics when checked, 
+//unhide when unchecked. (hide all `ul` elements)
 
 $('#hide').click(function () {
     $('ul').toggle(this.unchecked);
 });
 
-//search
+//There is search field above. It should filter the topics (filter `li` elements).
+// It should be case-insensitive.
 
-$('input[type="text"]').keyup(function () {
-    
+$('#search-topics input').keyup(function () {
+    var searchText = $(this).val();
 
-
+    $('ul > li').each(function () {
+        var currentLiText = $(this).text(),
+            showCurrentLi = currentLiText.indexOf(searchText) !== -1;
+        $(this).toggle(showCurrentLi);
+    });
 })
