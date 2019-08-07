@@ -6,7 +6,7 @@ $(document).on('click', '.delete', function () {
     event.preventDefault();
     var noSound = new Audio("sound/no.mp3");
     noSound.play();
-
+    
     $(this).fadeOut(500, function () {
         $(this).closest('li').remove()
     });
@@ -24,12 +24,18 @@ $('button').on('click', function (e) {
         var addSound = new Audio("sound/adds.mp3");
         addSound.play();
 
+        if ($('.list-group li:last-child').hasClass('list-group-item-info')){
         
-        $('ul').append("<li class='list-group-item'><span class='name'>"
+            $('ul').append("<li class='list-group-item list-group-item-light'><span class='name'>"
             + newValue
             + "</span><span class='delete'>delete</span>");
         $('#addListItem').val('');
-        
+        }else{
+            $('ul').append("<li class='list-group-item list-group-item-info'><span class='name'>"
+                + newValue
+                + "</span><span class='delete'>delete</span>");
+            $('#addListItem').val('');
+        }
     }
     else {
         $('button').css('background-color', 'red');
