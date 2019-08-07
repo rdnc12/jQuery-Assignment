@@ -4,13 +4,15 @@
 // `Delete` buttons should remove the topics (`li` elements). 
 $(document).on('click', '.delete', function () {
     event.preventDefault();
+    var closeLi = $(this).closest('li');
     var noSound = new Audio("sound/no.mp3");
     noSound.play();
     
-    $(this).fadeOut(500, function () {
-        $(this).closest('li').remove()
-    });
+        $(this).fadeOut(500, function () {
+            closeLi.remove()
+        });
     
+
 });
 
 
@@ -24,13 +26,13 @@ $('button').on('click', function (e) {
         var addSound = new Audio("sound/adds.mp3");
         addSound.play();
 
-        if ($('.list-group li:last-child').hasClass('list-group-item-info')){
-        
+        if ($('.list-group li:last-child').hasClass('list-group-item-info')) {
+
             $('ul').append("<li class='list-group-item list-group-item-light'><span class='name'>"
-            + newValue
-            + "</span><span class='delete'>delete</span>");
-        $('#addListItem').val('');
-        }else{
+                + newValue
+                + "</span><span class='delete'>delete</span>");
+            $('#addListItem').val('');
+        } else {
             $('ul').append("<li class='list-group-item list-group-item-info'><span class='name'>"
                 + newValue
                 + "</span><span class='delete'>delete</span>");
@@ -43,7 +45,7 @@ $('button').on('click', function (e) {
     $("#addListItem").keypress(function () {
         $('button').css('background-color', '#9361bf');
     });
-    
+
 });
 
 
@@ -62,8 +64,8 @@ $('#search-topics input').keyup(function () {
     var searchText = $(this).val();
 
     $('ul > li').each(function () {
-        var currentLiText = $(this).text(),
-            showCurrentLi = currentLiText.indexOf(searchText) !== -1;
+        var currentLiText = $(this).text();
+            showCurrentLi = currentLiText.indexOf(searchText) >=0;
         $(this).toggle(showCurrentLi);
     });
 })
