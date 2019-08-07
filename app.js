@@ -7,11 +7,11 @@ $(document).on('click', '.delete', function () {
     var closeLi = $(this).closest('li');
     var noSound = new Audio("sound/no.mp3");
     noSound.play();
-    
-        $(this).fadeOut(500, function () {
-            closeLi.remove()
-        });
-    
+
+    $(this).fadeOut(500, function () {
+        closeLi.remove()
+    });
+
 
 });
 
@@ -54,7 +54,9 @@ $('button').on('click', function (e) {
 //unhide when unchecked. (hide all `ul` elements)
 
 $('#hide').click(function () {
-    $('ul').toggle(this.unchecked);
+
+    $('ul').slideToggle(300, function () {
+    });
 });
 
 //There is search field above. It should filter the topics (filter `li` elements).
@@ -65,7 +67,7 @@ $('#search-topics input').keyup(function () {
 
     $('ul > li').each(function () {
         var currentLiText = $(this).text();
-            showCurrentLi = currentLiText.indexOf(searchText) >=0;
+        showCurrentLi = currentLiText.indexOf(searchText) >= 0;
         $(this).toggle(showCurrentLi);
     });
 })
